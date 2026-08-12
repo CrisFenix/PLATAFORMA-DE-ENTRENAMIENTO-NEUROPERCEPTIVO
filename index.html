@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Plataforma de Entrenamiento Neuroperceptivo</title>
+<meta name="description" content="Sistema experimental para entrenamiento y evaluación de capacidades perceptivas, cognitivas y sensoriomotoras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/modules.css">
+</head>
+<body>
+
+<div id="app-root">
+
+  <!-- ============ HEADER / INSTRUMENT RAIL ============ -->
+  <header class="rail" role="banner">
+    <div class="rail-brand">
+      <span class="rail-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="28" height="28">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M6 20 Q 13 8, 20 20 T 34 20" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        </svg>
+      </span>
+      <div class="rail-titleblock">
+        <span class="rail-eyebrow">NPT-α · Estación de Evaluación</span>
+        <span class="rail-title">Entrenamiento Neuroperceptivo</span>
+      </div>
+    </div>
+    <nav class="rail-nav" aria-label="Navegación principal">
+      <button class="rail-btn" data-nav="panel">Panel</button>
+      <button class="rail-btn" data-nav="baseline">Evaluación inicial</button>
+      <button class="rail-btn" data-nav="lab">Laboratorio</button>
+      <button class="rail-btn" data-nav="dashboard">Sesión</button>
+      <button class="rail-btn rail-btn--icon" id="btn-settings" title="Accesibilidad y preferencias" aria-label="Accesibilidad y preferencias">⚙</button>
+    </nav>
+  </header>
+
+  <!-- ============ MAIN VIEWPORT ============ -->
+  <main id="view-root" class="view-root" aria-live="polite">
+    <!-- Las vistas se inyectan dinámicamente desde app.js -->
+  </main>
+
+  <!-- ============ STATUS FOOTER ============ -->
+  <footer class="status-bar">
+    <span id="status-left">Sistema listo</span>
+    <span id="status-right">Sin almacenamiento permanente · Datos solo en memoria de sesión</span>
+  </footer>
+
+</div>
+
+<!-- ============ TEMPLATES (clonados por JS, no renderizados directamente) ============ -->
+
+<template id="tpl-module-card">
+  <article class="module-card" tabindex="0">
+    <div class="module-card-head">
+      <span class="module-status-dot" aria-hidden="true"></span>
+      <h3 class="module-name"></h3>
+    </div>
+    <p class="module-desc"></p>
+    <div class="module-meta">
+      <span class="module-difficulty"></span>
+      <span class="module-status-label"></span>
+    </div>
+    <button class="btn btn-primary module-start">Iniciar prueba</button>
+  </article>
+</template>
+
+<template id="tpl-result-panel">
+  <section class="result-panel" aria-label="Resultado de la prueba">
+    <h2 class="result-title">RESULTADO</h2>
+    <div class="result-grid"></div>
+    <div class="result-actions">
+      <button class="btn btn-ghost" data-action="retry">Repetir</button>
+      <button class="btn btn-primary" data-action="exit">Volver al panel</button>
+    </div>
+  </section>
+</template>
+
+<script src="js/metrics.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/calibration.js"></script>
+<script src="js/attention.js"></script>
+<script src="js/memory.js"></script>
+<script src="js/reaction.js"></script>
+<script src="js/vision.js"></script>
+<script src="js/audition.js"></script>
+<script src="js/olfaction.js"></script>
+<script src="js/taste.js"></script>
+<script src="js/proprioception.js"></script>
+<script src="js/spatial.js"></script>
+<script src="js/multisensory.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
