@@ -1,0 +1,127 @@
+/* ===================================================================
+   PANTALLAS DE EJERCICIO / CALIBRACIÓN / LABORATORIO
+=================================================================== */
+
+/* ---------- cabecera de prueba ---------- */
+.exercise-shell{ display:flex; flex-direction:column; gap: var(--gap-md); }
+.exercise-topbar{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  border:1px solid var(--line); background: var(--bg-1); border-radius: var(--radius);
+  padding: 12px 18px;
+}
+.exercise-title{ font-family: var(--font-display); font-size:14px; color: var(--text-hi); }
+.exercise-hud{ display:flex; gap:18px; flex-wrap:wrap; }
+.hud-item{ font-family: var(--font-data); font-size:11.5px; color: var(--text-mid); display:flex; gap:6px; align-items:baseline; }
+.hud-item b{ color: var(--phosphor); font-size:13px; }
+.exercise-exit{ font-size:11.5px; }
+
+/* ---------- superficie de estímulo ---------- */
+.stimulus-stage{
+  position:relative;
+  width:100%;
+  min-height: 380px;
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  background: #000;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action: manipulation;
+  user-select:none;
+}
+.stimulus-stage.stage-light{ background: #fdfdfb; }
+.stimulus-stage:focus-visible{ outline:2px solid var(--phosphor); outline-offset:-2px; }
+
+.fixation-point{
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background: var(--phosphor); top:50%; left:50%; transform:translate(-50%,-50%);
+  box-shadow: 0 0 8px var(--phosphor);
+}
+.stim-object{
+  position:absolute;
+  border-radius:2px;
+}
+
+.stage-instructions{
+  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+  font-family: var(--font-data); font-size:11.5px; color: rgba(255,255,255,0.5);
+  text-align:center; pointer-events:none; max-width:90%;
+}
+
+.big-tap-zone{
+  position:absolute; inset:0; cursor:pointer; background:transparent; border:none;
+}
+
+.countdown-flash{
+  font-family: var(--font-display); font-size: 54px; color: var(--phosphor);
+}
+
+/* ---------- panel de instrucciones ---------- */
+.instructions-panel{
+  border:1px solid var(--line); background: var(--bg-1); border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.instructions-panel h2{ font-family: var(--font-display); font-size:16px; margin:0 0 12px; }
+.instructions-panel ol, .instructions-panel ul{ color: var(--text-mid); font-size:13.5px; line-height:1.7; padding-left:20px; }
+.instructions-panel p{ color: var(--text-mid); font-size:13.5px; line-height:1.7; }
+.difficulty-select{ display:flex; gap:8px; margin: 16px 0; flex-wrap:wrap; }
+.difficulty-select button{
+  font-family: var(--font-data); font-size:12px; padding:8px 14px; border-radius: var(--radius);
+  border:1px solid var(--line); background: var(--bg-0); color: var(--text-mid); cursor:pointer;
+}
+.difficulty-select button.active{ border-color: var(--phosphor); color: var(--phosphor); background: var(--phosphor-glow); }
+
+/* ---------- calibración ---------- */
+.calibration-step{ max-width: 620px; }
+.calibration-progress{
+  display:flex; gap:5px; margin-bottom: var(--gap-md);
+}
+.calibration-progress span{
+  height:3px; flex:1; background: var(--line); border-radius:2px;
+}
+.calibration-progress span.done{ background: var(--phosphor); }
+.card-reference{
+  width: 160px; height:100px; border:2px dashed var(--text-low); border-radius:6px;
+  display:flex; align-items:center; justify-content:center; color: var(--text-low);
+  font-family: var(--font-data); font-size: 11px; margin: 14px 0;
+}
+
+/* ---------- laboratorio (parámetros) ---------- */
+.lab-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: var(--gap-lg); }
+.lab-form{ border:1px solid var(--line); background: var(--bg-1); border-radius: var(--radius); padding: 20px 22px; }
+.lab-actions{ display:flex; gap:10px; margin-top:16px; }
+.lab-preview{ border:1px solid var(--line); background: var(--bg-1); border-radius: var(--radius); padding:20px 22px; }
+.lab-preview h3{ font-family: var(--font-data); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-low); margin:0 0 14px; }
+@media (max-width: 860px){ .lab-grid{ grid-template-columns: 1fr; } }
+
+/* ---------- olfato / gusto / propiocepción (guiados) ---------- */
+.guided-panel{ border:1px solid var(--line); background: var(--bg-1); border-radius: var(--radius); padding: 22px 24px; }
+.sample-tracker{ display:flex; gap:8px; flex-wrap:wrap; margin: 14px 0 18px; }
+.sample-chip{
+  font-family: var(--font-data); font-size:12px; padding:7px 12px; border-radius:20px;
+  border:1px solid var(--line); color: var(--text-mid);
+}
+.sample-chip.current{ border-color: var(--phosphor); color: var(--phosphor); background: var(--phosphor-glow); }
+.sample-chip.done{ color: var(--text-low); text-decoration: line-through; }
+.option-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin: 16px 0; }
+.option-grid button{
+  font-family: var(--font-data); font-size:12.5px; padding:12px 10px; border-radius: var(--radius);
+  border:1px solid var(--line); background: var(--bg-0); color: var(--text-hi); cursor:pointer;
+}
+.option-grid button:hover{ border-color: var(--phosphor-dim); }
+.option-grid button.selected{ border-color: var(--phosphor); color: var(--phosphor); background: var(--phosphor-glow); }
+
+/* ---------- utilidades específicas de estímulo visual ---------- */
+.landolt-c{ display:block; }
+.color-swatch{
+  width: 90px; height:90px; border-radius:6px; display:inline-block; cursor:pointer;
+  border:2px solid transparent;
+}
+.color-swatch:hover, .color-swatch:focus-visible{ border-color: var(--phosphor); }
+.swatch-row{ display:flex; gap:18px; align-items:center; justify-content:center; flex-wrap:wrap; }
+
+@media (max-width: 720px){
+  .exercise-hud{ gap:10px; }
+  .stimulus-stage{ min-height: 300px; }
+}
